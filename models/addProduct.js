@@ -11,6 +11,9 @@ const addProduct = new mongoose.Schema({
     },
     image:{
         type:String
+    },
+    owner:{
+        type:String
     }
 });
 

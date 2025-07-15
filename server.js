@@ -5,6 +5,7 @@ import ProductRoutes from './routes/productRoutes.js';
 import { connectDB } from './lib/db.js';
 
 import http from 'http';
+import userRouter from './routes/userRoutes.js';
 
 const app=express();
 const server= http.createServer(app);
@@ -17,5 +18,7 @@ app.get("/",(req,res)=>{
 });
 connectDB();
 app.use('/api/product/',ProductRoutes);
+app.use('/api/auth/',userRouter);
+
 const port=process.env.PORT || 5000;
 server.listen(port,()=>console.log("server is running on "+port))
